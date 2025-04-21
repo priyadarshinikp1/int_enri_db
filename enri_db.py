@@ -195,6 +195,8 @@ try:
 except Exception as e:
     st.error(f"Network rendering failed: {e}")
 
+
+
 # === SUMMARY TABLE OF ALL ASSOCIATIONS ===
 st.subheader("🧾 Summary Table of Gene Associations")
 
@@ -209,6 +211,7 @@ summary_dict = {gene: {
     "Disease": []
 } for gene in common_genes}
 
+# Fill in the enrichment-based associations
 # Fill in the enrichment-based associations
 for lib, df in results.items():
     assoc_type = lib_to_type.get(lib, None)
@@ -252,4 +255,3 @@ for col in summary_df.columns[1:]:
     summary_df[col] = summary_df[col].apply(lambda x: '; '.join(set(x)) if isinstance(x, list) else '')
 
 st.dataframe(summary_df)
-
