@@ -194,3 +194,58 @@ try:
 
 except Exception as e:
     st.error(f"Network rendering failed: {e}")
+
+# === SUMMARY TABLE OF ALL ASSOCIATIONS ===
+st.subheader("🧾 Summary Table of Gene Associations")
+
+# Initialize summary dictionary
+summary_dict = {gene: {
+    "Transcription Factor": [],
+    "Protein": [],
+    "Enzyme": [],
+    "Metabolite": [],
+    "Pathway": [],
+    "Process": [],
+    "Disease": []
+} for gene in common_genes}
+
+# Fill in the enrichment-based associations
+for lib, df in results.items():
+    assoc_type = lib_to_type.get(lib, None)
+    if not assoc_type:
+        continue
+    for _, row in df.iterrows():
+        term = row["Term"]
+        genes = [g.strip().upper() for g in row["Genes"].split(";")]
+        for gene in genes:
+            if gene in summary_dict:
+                if assoc_type == "regulator":
+                    summary_dict[gene]["Transcription Factor"].append(term)
+                elif assoc_type == "enzyme":
+                    summary_dict[gene]["Enzyme"].append(term)
+                elif assoc_type == "metabolite":
+                    summary_dict[gene]["Metabolite"].append(term)
+                elif assoc_type == "pathway":
+                    summary_dict[gene]["Pathway"].append(term)
+                elif assoc_type == "process":
+                    summary_dict[gene]["Process"].append(term)
+                elif assoc_type == "disease":
+                    summary_dict[gene]["Disease"].append(term)
+
+# Fill in proteomics-based associations
+for _, row in proteomics_data.iterrows():
+    gene = row['Gene'].strip().upper()
+    protein = row['Protein'].strip()
+    if gene in summary_dict:
+        summary_dict[gene]["Protein"].append(protein)
+
+# Convert to DataFrame
+summary_df = pd.DataFrame.from_dict(summary_dict, orient='index').reset_index()
+summary_df.rename(columns={'index': 'Gene'}, inplace=True)
+
+# Optional: Join list values into semicolon-separated strings
+for col in summary_df.columns[1:]:
+    summary_df[col] = summary_df[col].apply(lambda x: '; '.join(set(x)) if isinstance(x, list) else '')
+
+st.dataframe(summary_df)
+
