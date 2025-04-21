@@ -64,7 +64,7 @@ for lib in libraries:
 # --- Display Top ORA Terms ---
 for lib, df in results.items():
     st.subheader(f"{lib} - Top Results")
-    st.dataframe(df[['Term', 'P-value', 'Adjusted P-value', 'Overlap', 'Genes']].head(10))
+    st.dataframe(df[['Term', 'P-value', 'Adjusted P-value', 'Genes']].head(10))
 
 # === NETWORK ===
 top_n = st.slider("Select number of top terms to visualize:", 5, 50, 5)
