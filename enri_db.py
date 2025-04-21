@@ -216,6 +216,9 @@ for lib, df in results.items():
         continue
     for _, row in df.iterrows():
         term = row["Term"]
+        # Filter out mouse or non-human terms
+        if any(x in term.lower() for x in ["mouse", "mus musculus", "mmu", "murine"]):
+            continue
         genes = [g.strip().upper() for g in row["Genes"].split(";")]
         for gene in genes:
             if gene in summary_dict:
@@ -231,6 +234,7 @@ for lib, df in results.items():
                     summary_dict[gene]["Process"].append(term)
                 elif assoc_type == "disease":
                     summary_dict[gene]["Disease"].append(term)
+
 
 # Fill in proteomics-based associations
 for _, row in proteomics_data.iterrows():
