@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 
 st.set_page_config(page_title="Int_Enridb App", layout="wide")
 st.image("https://raw.githubusercontent.com/priyadarshinikp1/int_enri_db/main/logo.png", width=200)
-st.title("🧬 Omics Integration & Over-Representation Explorer")
+st.title("Omics Integration & Over-Representation Explorer - VIZZHY APP")
 with st.sidebar:
     st.markdown("---")
     st.markdown("**👨‍💻 Created by:PRIYADARSHINI")
