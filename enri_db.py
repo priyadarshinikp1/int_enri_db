@@ -9,6 +9,10 @@ from bs4 import BeautifulSoup
 
 st.set_page_config(page_title="Int_Enridb App", layout="wide")
 st.title("🧬 Omics Integration & Over-Representation Explorer")
+with st.sidebar:
+    st.markdown("---")
+    st.markdown("**👨‍💻 Created by:PRIYADARSHINI")
+    st.markdown("[LinkedIn](www.linkedin.com/in/priyadarshini24) | [GitHub](https://github.com/priyadarshinikp1)")
 
 # --- File Upload Section ---
 st.sidebar.header("📁 Upload Your Omics Data")
