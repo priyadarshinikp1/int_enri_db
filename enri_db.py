@@ -261,3 +261,5 @@ for col in summary_df.columns[1:]:
     summary_df[col] = summary_df[col].apply(lambda x: '; '.join(set(x)) if isinstance(x, list) else '')
 
 st.dataframe(summary_df)
+top_summary_n = st.slider("Select number of genes to display in summary table:", 5, len(summary_df), 20)
+
