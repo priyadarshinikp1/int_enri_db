@@ -8,6 +8,7 @@ import streamlit.components.v1 as components
 from bs4 import BeautifulSoup
 
 st.set_page_config(page_title="Int_Enridb App", layout="wide")
+st.image("https://your-hosted-image-url.com/logo.png", width=200)
 st.title("🧬 Omics Integration & Over-Representation Explorer")
 with st.sidebar:
     st.markdown("---")
