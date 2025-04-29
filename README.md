@@ -1,38 +1,42 @@
-# Multiomic Integration App
+Omics Integration & Over-Representation Explorer - VIZZHY APP
+Overview
+The VIZZHY App is a user-friendly Streamlit web application designed to integrate and analyze genomic, transcriptomic, and proteomic data. It performs over-representation analysis (ORA) using several biological databases, helping researchers uncover biological insights and connections between genes, proteins, metabolites, enzymes, pathways, diseases, and transcription factors.
 
-## Overview
-The **Multiomic Integration App** is a Streamlit-based tool designed to help integrate genomic, transcriptomic, and proteomic data in a user-friendly way. The app combines data from various biological databases to build a network that connects **genes**, **proteins**, **metabolites**, **enzymes**, **transcription factors (TFs)**, **pathways**, and **diseases**. This can be useful for researchers interested in understanding complex biological interactions and how different molecular layers (genes, proteins, etc.) come together.
+The app allows users to upload datasets, perform enrichment analysis, visualize the relationships between the data, and view a summary of associations.
 
-### Databases Used
-We’ve integrated data from several well-known biological databases:
-1. **KEGG** (Kyoto Encyclopedia of Genes and Genomes)
-2. **Reactome**
-3. **HMDB** (Human Metabolome Database)
-4. **Kinase**
-5. **JNS** (Transcription Factor Database)
-6. **DISGENET** (Disease Gene Association Database)
-7. **(Additional database 1)** (e.g., STRING or BioGRID)
-8. **(Additional database 2)** (e.g., Ensembl or UniProt)
+Features
+Omics Data Integration: Upload and combine genomic, transcriptomic, and proteomic datasets.
 
-These databases allow the app to create a network of interactions between genes, proteins, metabolites, enzymes, transcription factors, pathways, and diseases.
+Over-Representation Analysis (ORA): Analyze gene sets against various biological databases such as KEGG, Reactome, and more.
 
-### Features
-- **Integration of Omic Data**: The app combines genomic, transcriptomic, and proteomic data to create a unified analysis.
-- **Network Construction**: Using data from the selected databases, the app builds a network that shows the relationships between genes, proteins, metabolites, and more.
-- **Association Table**: A final table is generated that summarizes all the key associations and interactions identified during the integration process.
+Interactive Network Visualization: Visualize enriched terms in an interactive network.
 
-### How It Works
-1. **Input Data**: You can upload genomic, transcriptomic, and proteomic datasets in various formats (like CSV or TSV).
-2. **Choose Databases**: The app will pull relevant information from the chosen databases (e.g., KEGG, Reactome, etc.).
-3. **Run Integration**: The app processes the data and integrates it into a network.
-4. **View Results**: Once integration is complete, you can visualize the network and explore the results.
-5. **Download the Table**: A final table of associations is generated and can be downloaded for further analysis.
+Summary Table: Generate a summary table of associations between genes, proteins, metabolites, enzymes, pathways, diseases, and more.
 
-### Example Output
-The app generates a table that looks something like this:
+Databases Used for Over-Representation Analysis:
+HMDB_Metabolites (Metabolites)
 
-| Gene | Protein | Metabolite | Enzyme | Transcription Factor (TF) | Pathway | Disease |
-|------|---------|------------|--------|---------------------------|---------|---------|
-| GeneA | ProteinX | Metabolite1 | Enzyme1 | TF1 | Pathway1 | Disease1 |
-| GeneB | ProteinY | Metabolite2 | Enzyme2 | TF2 | Pathway2 | Disease2 |
+DisGeNET (Diseases)
 
+OMIM_Disease (Diseases)
+
+KEGG_2021_Human (Pathways)
+
+Reactome_2016 (Pathways)
+
+TRANSFAC_and_JASPAR_PWMs (Transcription Factors)
+
+GO_Biological_Process_2021 (Biological Processes)
+
+KEA_2015 (Enzymes)
+
+How It Works
+Upload Omics Data: Upload your genomic, transcriptomic, and proteomic data in CSV format via the sidebar.
+
+Over-Representation Analysis (ORA): The app performs ORA for common genes across all three omic layers against the selected databases.
+
+Explore Results: The app generates a list of enriched terms and visualizes these terms and their connections through a network.
+
+Interactive Network: Interact with a network visualization to explore connections between genes, proteins, metabolites, and more.
+
+Summary Table: A table is generated showing the associations of each gene with its corresponding biological elements.
