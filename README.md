@@ -1,6 +1,8 @@
-Omics Integration & Over-Representation Explorer - VIZZHY APP
+Omics Integration & Over-Representation Explorer App- (VIZZHY)
+
 Overview
-The VIZZHY App is a user-friendly Streamlit web application designed to integrate and analyze genomic, transcriptomic, and proteomic data. It performs over-representation analysis (ORA) using several biological databases, helping researchers uncover biological insights and connections between genes, proteins, metabolites, enzymes, pathways, diseases, and transcription factors.
+
+The App is a user-friendly Streamlit web application designed to integrate and analyze genomic, transcriptomic, and proteomic data. It performs over-representation analysis (ORA) using several biological databases, helping researchers uncover biological insights and connections between genes, proteins, metabolites, enzymes, pathways, diseases, and transcription factors.
 
 The app allows users to upload datasets, perform enrichment analysis, visualize the relationships between the data, and view a summary of associations.
 
